@@ -4,7 +4,7 @@
  *
  */
 import { View, Text } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Fontisto } from "@expo/vector-icons";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
@@ -30,6 +30,8 @@ import {
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import ChatRoomScreen from "../screens/ChatRoomScreen";
+import { Route } from "react-native-tab-view";
 
 export default function Navigation({
   colorScheme,
@@ -104,9 +106,37 @@ function RootNavigator() {
         }}
       />
       <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoomScreen}
+        options={({ route }) => ({
+          title: route.params.name,
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                width: 100,
+                justifyContent: "space-evenly",
+                marginRight: 5,
+              }}
+            >
+              <FontAwesome5 name="video" size={22} color={"white"} />
+              <MaterialIcons name="call" size={22} color={"white"} />
+
+              <MaterialCommunityIcons
+                name="dots-vertical"
+                size={22}
+                color={"white"}
+              />
+            </View>
+          ),
+        })}
+      />
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
-        options={{ title: "Oops!" }}
+        options={{
+          title: "oops!",
+        }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
