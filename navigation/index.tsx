@@ -121,7 +121,6 @@ function RootNavigator() {
             >
               <FontAwesome5 name="video" size={22} color={"white"} />
               <MaterialIcons name="call" size={22} color={"white"} />
-
               <MaterialCommunityIcons
                 name="dots-vertical"
                 size={22}
