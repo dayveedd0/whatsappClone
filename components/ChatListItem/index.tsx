@@ -29,7 +29,7 @@ const ChatListItem = (props: ChatListItemProps) => {
             </Text>
           </View>
         </View>
-        <Text>{moment(chatRoom.lastMessage.createdAt).format("dddd")}</Text>
+        <Text>{moment(chatRoom.lastMessage.createdAt).fromNow()}</Text>
       </View>
     </TouchableOpacity>
   );
