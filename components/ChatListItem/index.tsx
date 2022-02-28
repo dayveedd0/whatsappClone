@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableWithoutFeedback } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { ChatRoom } from "../../types";
 import styles from "./style";
@@ -18,7 +18,7 @@ const ChatListItem = (props: ChatListItemProps) => {
     navigation.navigate("ChatRoom", { id: chatRoom.id, name: user.name });
   };
   return (
-    <TouchableWithoutFeedback onPress={onClick}>
+    <TouchableOpacity onPress={onClick}>
       <View style={styles.container}>
         <View style={styles.leftContainer}>
           <Image source={{ uri: user.imageUri }} style={styles.avatar} />
@@ -31,7 +31,7 @@ const ChatListItem = (props: ChatListItemProps) => {
         </View>
         <Text>{moment(chatRoom.lastMessage.createdAt).format("dddd")}</Text>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 };
 
