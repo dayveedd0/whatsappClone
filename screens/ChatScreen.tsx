@@ -4,6 +4,7 @@ import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 
 import chatRooms from "../data/ChatRooms";
+import NewMessageButton from "../components/NewMessageButton";
 
 export default function ChatScreen({
   navigation,
@@ -16,6 +17,7 @@ export default function ChatScreen({
         renderItem={({ item }) => <ChatListItem chatRoom={item} />}
         keyExtractor={(item) => item.id}
       />
+      <NewMessageButton />
     </View>
   );
 }
