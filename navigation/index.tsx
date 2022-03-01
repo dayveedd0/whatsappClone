@@ -32,6 +32,7 @@ import {
 import LinkingConfiguration from "./LinkingConfiguration";
 import ChatRoomScreen from "../screens/ChatRoomScreen";
 import { Route } from "react-native-tab-view";
+import ContactsScreen from "../screens/ContactsScreen";
 
 export default function Navigation({
   colorScheme,
@@ -137,9 +138,7 @@ function RootNavigator() {
           title: "oops!",
         }}
       />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
+      <Stack.Screen name="Contacts" component={ContactsScreen} />
     </Stack.Navigator>
   );
 }

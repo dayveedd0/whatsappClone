@@ -9,11 +9,13 @@ export default [
     id: "u2",
     name: "Lukas",
     imageUri: "https://source.unsplash.com/user/c_v_r/200x200",
+    status: "Currently busy",
   },
   {
     id: "u3",
     name: "Daniil",
     imageUri: "https://source.unsplash.com/user/c_v_r/200x200",
+    status: "Js is the FUTURE!!",
   },
   {
     id: "u4",
