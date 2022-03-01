@@ -22,14 +22,23 @@ export default function ChatMessage(props: ChatMessageProps) {
           styles.messageBox,
           {
             backgroundColor: isMyMessage() ? "#DCF8C5" : "white",
-            alignContent: isMyMessage() ? "flex-end" : "flex-start",
             marginLeft: isMyMessage() ? 50 : 0,
+            marginRight: isMyMessage() ? 0 : 50,
           },
         ]}
       >
-        <Text>{message.user.name}</Text>
-        <Text>{message.content}</Text>
-        <Text>{moment(message.createdAt).fromNow()}</Text>
+        {!isMyMessage() && <Text style={styles.name}>{message.user.name}</Text>}
+        <Text style={styles.message}>{message.content}</Text>
+        <Text style={styles.time}>
+          {moment(message.createdAt).calendar(null, {
+            sameDay: "H:Ma",
+            nextDay: "[Tomorrow]",
+            nextWeek: "DD MM YYYY",
+            lastDay: "[yesterday at :] H:Ma ",
+            lastWeek: "[last] H:MMa",
+            sameElse: "DD/MM/YYYY H:MMa",
+          })}
+        </Text>
       </View>
     </View>
   );

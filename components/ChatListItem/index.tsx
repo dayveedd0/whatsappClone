@@ -29,7 +29,16 @@ const ChatListItem = (props: ChatListItemProps) => {
             </Text>
           </View>
         </View>
-        <Text>{moment(chatRoom.lastMessage.createdAt).fromNow()}</Text>
+        <Text>
+          {moment(chatRoom.lastMessage.createdAt).calendar(null, {
+            sameDay: "H:Ma",
+            nextDay: "[Tomorrow]",
+            nextWeek: "DD MM YYYY",
+            lastDay: "[yesterday at :] H:Ma ",
+            lastWeek: "[last] H:MMa",
+            sameElse: "DD/MM/YYYY H:MMa",
+          })}
+        </Text>
       </View>
     </TouchableOpacity>
   );
